@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+
+Event.delete_all
+10.times do
+  Event.create!(
+    name: Faker::Name.name,
+    event_date: Faker::Time.forward(23, :morning),
+    place: Faker::Address.street_name,
+    description: Faker::Lorem.sentence
+  )
+end
